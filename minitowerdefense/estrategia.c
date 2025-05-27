@@ -1,4 +1,5 @@
 #include "estrategia.h"
+#include "pila.h"
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -16,6 +17,19 @@ static int posiciones_validas(Coordenada *validas, TipoCasilla **casillas, int a
     }
 
     return cant_posiciones_validas;
+}
+
+static int camino_dentro_del_rango(Coordenada *cord_torre, TipoCasilla **casillas, int rango, int alto, int ancho) {
+    int cant_camino = 0;
+    
+    for(int i = (cord_torre->x - rango); i <= (cord_torre->x + rango) && i < alto; i++) {
+        for(int j = (cord_torre->y - rango); j <= (cord->torre.y + rango) && j < ancho; j++) { 
+            if (casillas[i][j] == CAMINO)
+                cant_camino++;
+        }
+    }
+    
+    return;
 }
 
 static void colocar_torre(Mapa *mapa, int x, int y, int nro_torre) {
@@ -54,7 +68,15 @@ void disponer(Nivel* nivel, Mapa* mapa) {
 }
 
 void disponer_con_backtracking(Nivel* nivel, Mapa* mapa) {
-    /* A cargo de la/el estudiante */
+    int cantidad_casillas = mapa->alto * mapa->ancho;
+    Coordenada posiciones_validas_torre[cantidad_casillas];
+    int cant_validas = posiciones_validas(posiciones_validas_torre, mapa->casillas, mapa->alto, mapa->ancho);
+    Pila* torres = crear_pila();
+    
+    for(int i = 0; i < alto; 
+    
+    
+    
     return;
 }
 

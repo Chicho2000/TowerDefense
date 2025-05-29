@@ -1,4 +1,5 @@
 #include "estrategia.h"
+#include "pila.h"
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -24,12 +25,12 @@ static int camino_dentro_del_rango(Coordenada *cord_torre, TipoCasilla **casilla
 
     for(int i = (cord_torre->x - rango); i <= (cord_torre->x + rango) && i < alto; i++) {
         for(int j = (cord_torre->y - rango); j <= (cord_torre->y + rango) && j < ancho; j++) {
-            if (casillas[i][j] == CAMINO)
+            if (i >= 0 && j >= 0 && casillas[i][j] == CAMINO)
                 cant_camino++;
         }
     }
 
-    return;
+    return cant_camino;
 }
 
 static int backtracking_torres(

@@ -11,7 +11,7 @@ Pila* crear_pila() {
         exit(1);
     }
     pila->cabeza = NULL;
-    pila->tamaño = 0;
+    pila->tamano = 0;
     return pila;
 }
 
@@ -37,7 +37,7 @@ void apilar(Pila* pila, DatosTorre datos) {
     nuevo->dato.cant_casillas_en_rango = datos.cant_casillas_en_rango;
     nuevo->siguiente = pila->cabeza;
     pila->cabeza = nuevo;
-    pila->tamaño++;
+    pila->tamano++;
 }
 
 
@@ -50,18 +50,18 @@ DatosTorre desapilar(Pila* pila) {
     DatosTorre dato = temp->dato;
     pila->cabeza = pila->cabeza->siguiente;
     free(temp);
-    pila->tamaño--;
+    pila->tamano--;
     return dato;
 }
 
 
 int esta_vacia(Pila* pila) {
-    return pila->tamaño == 0;
+    return pila->tamano == 0;
 }
 
 
 int obtener_tamano(Pila* pila) {
-    return pila->tamaño;
+    return pila->tamano;
 }
 
 

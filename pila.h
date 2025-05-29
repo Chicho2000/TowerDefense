@@ -1,6 +1,9 @@
 #ifndef PILA_H
 #define PILA_H
 
+#include "estrategia.h"
+#include "pila.h"
+#include "torre.h"
 
 typedef struct SNodo {
     DatosTorre dato;
@@ -10,7 +13,7 @@ typedef struct SNodo {
 
 typedef struct Pila {
     SNodo* cabeza;
-    int tamaño;
+    int tamano;
 } Pila;
 
 typedef void (*FuncionVisitante)(DatosTorre dato);
@@ -27,7 +30,7 @@ int esta_vacia(Pila* pila);
 
 int obtener_tamano(Pila* pila);
 
-int cima(Pila* pila);
+DatosTorre cima(Pila* pila);
 
 void recorrer_pila(Pila* pila, FuncionVisitante visit);
 

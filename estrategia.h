@@ -3,13 +3,11 @@
 
 #include "mapa.h"
 #include "nivel.h"
+#include "pila.h"
+#include "darr.h"
+#include "torre.h"
 
 typedef void (*DisposicionTorres)(Nivel*, Mapa*);
-
-typedef struct  t{
-    Coordenada posicion;
-    int cant_casillas_en_rango;
-} DatosTorre;
 
 void disponer(Nivel* nivel, Mapa* mapa);
 

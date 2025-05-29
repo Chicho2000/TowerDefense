@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include "pila.h"
+
 
 static int posiciones_validas(Coordenada *validas, TipoCasilla **casillas, int alto, int ancho) {
     int cant_posiciones_validas = 0;
-    
+
     for (int i = 0; i < alto; i++) {
         for (int j = 0; j < ancho; j++) {
             if (casillas[i][j] == VACIO) {
@@ -21,14 +21,14 @@ static int posiciones_validas(Coordenada *validas, TipoCasilla **casillas, int a
 
 static int camino_dentro_del_rango(Coordenada *cord_torre, TipoCasilla **casillas, int rango, int alto, int ancho) {
     int cant_camino = 0;
-    
+
     for(int i = (cord_torre->x - rango); i <= (cord_torre->x + rango) && i < alto; i++) {
-        for(int j = (cord_torre->y - rango); j <= (cord_torre->y + rango) && j < ancho; j++) { 
+        for(int j = (cord_torre->y - rango); j <= (cord_torre->y + rango) && j < ancho; j++) {
             if (casillas[i][j] == CAMINO)
                 cant_camino++;
         }
     }
-    
+
     return;
 }
 
@@ -110,7 +110,7 @@ void disponer_con_backtracking(Nivel* nivel, Mapa* mapa) {
         );
     }
 
-    int encontrado = backtracking_torres_pila(
+    int encontrado = backtracking_torres(
         torre,
         cant_validas,
         0,
@@ -131,7 +131,7 @@ void disponer_con_backtracking(Nivel* nivel, Mapa* mapa) {
         }
     } else {
         printf("No se encontró una combinación válida de torres.\n");
-    }   
+    }
 
     destruir_pila(torres);
 
